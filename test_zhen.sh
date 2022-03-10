@@ -7,7 +7,7 @@ PROBLEM=translate_zhen_wmt17
 MODEL=transformer
 HPARAMS=zhen_wmt17_transformer_rl_delta_setting_random
 
-DATA_DIR=../transformer_data/zhen
+DATA_DIR=./transformer_data/zhen
 USR_DIR=../rl4nmt/zhen_wmt17
 ROOT_MODEL=./rl4nmt/model/${HPARAMS}
 
@@ -25,6 +25,7 @@ for ii in {100000..120000..500}; do
   echo ${ii}
 
   ${binFile}/t2t-decoder \
+	--generate_data \
     --t2t_usr_dir=$USR_DIR \
     --data_dir=$DATA_DIR \
     --problems=$PROBLEM \
